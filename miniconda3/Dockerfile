@@ -36,10 +36,8 @@ RUN conda install --quiet --yes \
     'keras' \
     'plotly' \
     'quandl' \
-    'tweepy' \
-    'textblob' \
     'PyYAML' && \
-    conda clean -tipsy 
+    conda clean -tipsy
 
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "/bin/bash" ]
