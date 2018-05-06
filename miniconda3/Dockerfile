@@ -20,5 +20,26 @@ ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
 
+
+# Install Tensorflow
+RUN pip install influxdb
+RUN pip install pyreadline
+RUN conda install --quiet --yes \
+    'numpy' \
+    'matplotlib' \
+    'pandas' \
+    'scipy' \
+    'seaborn' \
+    'scikit-learn' \
+    'scikit-image' \
+    'tensorflow' \
+    'keras' \
+    'plotly' \
+    'quandl' \
+    'tweepy' \
+    'textblob' \
+    'PyYAML' && \
+    conda clean -tipsy 
+
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "/bin/bash" ]
